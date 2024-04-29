@@ -5,10 +5,21 @@ import cv2
 # import re
 import numpy as np
 import tensorflow as tf
-from flask import Flask,render_template
+from flask import Flask, render_template
 import statistics as st
+from flask import Flask, render_template, redirect, url_for, session, flash
+from flask_wtf import FlaskForm
+from wtforms import StringField,PasswordField,SubmitField
+from wtforms.validators import DataRequired, Email, ValidationError
+import bcrypt
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
+
+
+
+
+
 
 
 @app.route("/")
@@ -66,7 +77,7 @@ def buttons():
 
 
 @app.route('/movies/surprise', methods=['GET', 'POST'])
-def moviesSurprise():
+def moviesurprise():
     return render_template("moviesSurprise.html")
 
 
@@ -135,9 +146,7 @@ def songsNeutral():
     return render_template("songsSad.html")
 
 
-@app.route('/templates/join_page', methods=['GET', 'POST'])
-def join():
-    return render_template("join_page.html")
+
 
 
 if __name__ == "__main__":
