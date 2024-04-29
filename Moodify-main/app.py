@@ -1,30 +1,89 @@
 from __future__ import division, print_function
-# import sys
-import os
 import cv2
-# import re
 import numpy as np
 import tensorflow as tf
-from flask import Flask, render_template
 import statistics as st
-from flask import Flask, render_template, redirect, url_for, session, flash
-from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField
-from wtforms.validators import DataRequired, Email, ValidationError
-import bcrypt
-from flask_mysqldb import MySQL
+from flask import Flask, render_template, request, redirect, url_for
+import json
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+from flask_sqlalchemy import SQLAlchemy
+
+with open('config.json', 'r') as c:
+    params = json.load(c)["params"]
 
 app = Flask(__name__)
+app.secret_key = 'secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = params["local_uri"]
+db = SQLAlchemy(app)
 
 
+class Userinfo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), unique=False, nullable=False)
+    email = db.Column(db.String(50), unique=False, nullable=False)
+    password = db.Column(db.String(5), unique=False, nullable=False)
 
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        '''Add entry to the database'''
+        name = request.form.get('name')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        entry = Userinfo(name=name, email=email, password=password)
+        db.session.add(entry)
+        db.session.commit()
+        return redirect(url_for('successful'))  # Redirect to login page
+
+    return render_template('register.html', params=params)
 
 
+@app.route("/example")
+def example():
+    return render_template("example.html")
 
-@app.route("/")
+
+@app.route("/successful")
+def successful():
+    return render_template("successful.html")
+
+
+@app.route('/')
+def homepage():
+    return render_template('login.html')
+
+
+@app.route('/home')
 def home():
-    return render_template("index1.html")
+    return render_template('index1.html')
+
+
+Base = declarative_base()
+engine = create_engine('mysql://root:@localhost/users', echo=True)  # Replace with your database URL
+Base.metadata.create_all(engine)  # Create the tables in the database
+Session = sessionmaker(bind=engine)
+session1 = Session()
+
+user_data = session1.query(Userinfo).all()
+user_data_table = {}
+for user in user_data:
+    user_data_table[user.name] = user.password
+print(user_data_table)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('name')
+        password = request.form.get('password')
+        if username in user_data_table.keys() and password == user_data_table.get(username):
+            return redirect(url_for('home'))
+
+    return render_template('login.html', params=params)
 
 
 @app.route('/camera', methods=['GET', 'POST'])
@@ -144,9 +203,6 @@ def songsFear():
 @app.route('/songs/neutral', methods=['GET', 'POST'])
 def songsNeutral():
     return render_template("songsSad.html")
-
-
-
 
 
 if __name__ == "__main__":

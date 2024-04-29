@@ -22,7 +22,7 @@ body{
 }
 .background{
     width: 430px;
-    height: 520px;
+    height: 580px;
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
@@ -52,7 +52,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 550px;
+    height: 600px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -144,17 +144,19 @@ button{
 
         <h3>Register Here</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" id="username">
+        <label for="name">Username</label>
+        <input type="text" placeholder="Username" id="name" name="name" required>
 
-         <label for="username">Email</label>
-        <input type="text" placeholder="Email" id="email">
+         <label for="email">Email</label>
+        <input type="text" placeholder="Email" id="email" name="email" required>
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" name="password" required>
 
         <button>Register</button>
-         <div class="signup-link">Already a member? <a href="login.html">Login now</a></div>
+        <br><br>
+         <center><div class="signup-link">Already a member? <a href="/login">Login now</a></div>
+         </center>
 
 
     </form>
