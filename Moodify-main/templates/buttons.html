@@ -225,6 +225,24 @@
         { width:500px;
         }
 
+        .btn1{
+        display: inline-block;
+  border-radius: 4px;
+
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 45px;
+  padding: 20px;
+  width: 210px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+
+        }
+.btn1:hover {opacity: 0.6;
+text-decoration:none;
+}
 
         @media(max-width:800px){
             .contact-inputs{
@@ -247,7 +265,8 @@
                 <li><a href="http://localhost:5000">HOME</a></li>
                 <li><a href="#contact">CONTACT</a></li>
                 <li><a href="#about">ABOUT_US</a></li>
-                 <li><a href="C:\Users\ADMIN\Downloads\Moodify-main\Moodify-main\emoji.html">EMOJI'S</a></li>
+                 <li><a href="/example">EMOJI'S</a></li>
+                <li><a href="/podcast">Podcast</a></li>
 
             </ul>
 
@@ -259,129 +278,152 @@
             <div class="links slide-left"> -->
                 <div class="output" >
                     {% if final_output %}
-                    <h2 style="font-family:Bio-Rhyme; color: bisque;margin:40px;font:40px">You look {{final_output}}</h2>
-                    <h1 style="font-family:Bio-Rhyme; color: bisque;margin:40px;font:40px; font-size:70px">Let's have fun...!</h1>
+                    <h1 style="font-family:Bio-Rhyme; color: bisque;margin:40px;font:40px">You look {{final_output}}</h1>
+                   
                     <h2 style="font-family:Bio-Rhyme; color: bisque;margin:40px;font:40px">What would you prefer</h2>
                     {% endif %}
                 </div>
                 <a href="http://localhost:5000/movies/{{final_output}}" class="btn">MOVIES</a>
                 <a href="http://localhost:5000/songs/{{final_output}}" class="btn">SONGS</a>
-            </div>
+                <br>
+            <p></p>
+<h1 style="color:bisque;font-size:550%; margin-top:20px;">In The Mood For :</h1>
+
         </div>
-        <img src="static/back1.jpg" class="w3-image" style="width:100%;height:500px;"  id="myMap">
-<h2 style="font-size:70px;text-align: center;">
+        <div>
+            <a href="http://localhost:63342/Moodify-main/Moodify-main/templates/songsNeutral.html" class="btn1" style="background-image: linear-gradient( 179.7deg,  rgba(249,21,215,1) 1.1%, rgba(22,0,98,1) 99% );">Neutral</a>
+            <a href="http://localhost:63342/Moodify-main/Moodify-main/templates/songsSurprise.html" class="btn1" style="background-image: linear-gradient( 91.2deg,  rgba(136,80,226,1) 4%, rgba(16,13,91,1) 96.5% );">Surprise</a>
+            <a href="http://localhost:63342/Moodify-main/Moodify-main/templates/songsSad.html" class="btn1" style="background-image: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );">Sad</a>
+            <a href="http://localhost:63342/Moodify-main/Moodify-main/templates/songsHappy.html" class="btn1" style="background-image: linear-gradient( 108.7deg,  rgba(221,22,224,1) 11%, rgba(111,22,190,1) 88.2% );">Happy</a>
+            <a href="http://localhost:63342/Moodify-main/Moodify-main/templates/songsAngry.html" class="btn1" style="background-image: linear-gradient( 109.6deg,  rgba(102,51,153,1) 11.2%, rgba(2,0,4,1) 91.1% );">Angry</a>
+            <a href="http://localhost:63342/Moodify-main/Moodify-main/templates/songsFear.html" class="btn1" style="background-image: linear-gradient( 109.6deg,  rgba(209,0,116,1) 11.2%, rgba(110,44,107,1) 91.1% );">Fear</a>
+        </div>
+        </div>
+<img src="static/back1.jpg" class="w3-image" style="width:100%;height:500px;" id="myMap">
+<h2 style="font-size:70px;text-align: center;color:#a61c2e;">
     <strong>EmoVibes Galore</strong>
 </h2>
 <center>
-    <<iframe style=" border-radius: 10px;
-            overflow: hidden; " width="560" height="315" src="https://www.youtube.com/embed/rqJDO3TWnac?si=ew70JAVRxd1iX58x"
-             title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-             encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>  </iframe>
+    <iframe style="border-radius: 10px; overflow: hidden;" width="1880" height="840"
+            src="https://www.youtube.com/embed/rqJDO3TWnac?si=ew70JAVRxd1iX58x&autoplay=1&mute=1"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
 </center>
 <div id="about">
     <div>
-    <!-- About 1 - Bootstrap Brain Component -->
-<section class="py-3 py-md-5 py-xl-8">
-  <div class="container">
-    <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
-      <div class="col-12 col-lg-6 col-xl-5">
-        <img class="img-fluid rounded" loading="lazy" src="static/g.png" alt="">
-      </div>
-      <div class="col-12 col-lg-6 col-xl-7">
-        <div class="row justify-content-xl-center">
-          <div class="col-12 col-xl-11">
-            <h2 class="h1 mb-3" style="color:#873e23">EmoTune</h2>
-            <p class="lead fs-4  mb-3">Welcome to EmoTune, where music meets facial expressions in a wild dance of recommendations! Our Python-powered system reads your emotions and curates the perfect playlist just for you.</p>
+        <!-- About 1 - Bootstrap Brain Component -->
+        <section class="py-3 py-md-5 py-xl-8">
+            <div class="container">
+                <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+                    <div class="col-12 col-lg-6 col-xl-5">
+                        <img class="img-fluid rounded" loading="lazy" src="static/g.png" alt="">
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-7">
+                        <div class="row justify-content-xl-center">
+                            <div class="col-12 col-xl-11">
+                                <h2 class="h1 mb-3" style="color:#873e23">EmoTune</h2>
+                                <p class="lead fs-4  mb-3">Welcome to EmoTune, where music meets facial expressions in a
+                                    wild dance of recommendations! Our Python-powered system reads your emotions and
+                                    curates the perfect playlist just for you.</p>
 
-              <p>Say goodbye to boring playlists and hello to a musical journey based on your every smile, frown, and eyebrow raise. Get ready to groove with Emotion Beats!</p>
+                                <p>Say goodbye to boring playlists and hello to a musical journey based on your every
+                                    smile, frown, and eyebrow raise. Get ready to groove with Emotion Beats!</p>
 
-<p>Let your expressions guide the music, and let the beats reflect your mood. It's time to experience music in a whole new light.</p>
+                                <p>Let your expressions guide the music, and let the beats reflect your mood. It's time
+                                    to experience music in a whole new light.</p>
 
-          </div>
-        </div>
-      </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
-  </div>
-</section>
 
-  </div>
+    <div>
+        <!-- About 1 - Bootstrap Brain Component -->
+        <section class="py-3 py-md-5 py-xl-8">
+            <div class="container">
+                <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
 
-     <div>
-    <!-- About 1 - Bootstrap Brain Component -->
-<section class="py-3 py-md-5 py-xl-8">
-  <div class="container">
-    <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+                    <div class="col-12 col-lg-6 col-xl-7">
+                        <div class="row justify-content-xl-center">
+                            <div class="col-12 col-xl-11">
+                                <h2 class="h1 mb-3" style="color:#22cfd6">How it work?</h2>
+                                <p class="lead fs-4  mb-3">It can detect 7 emotions. The project works by getting live
+                                    video feed from web cam, pass it through the model to get a prediction of emotion.
+                                    Then according to the emotion predicted, the app will fetch playlist of songs
+                                    from Spotify through spotipy wrapper and recommend the songs by displaying them on
+                                    the screen.</p>
 
-      <div class="col-12 col-lg-6 col-xl-7">
-        <div class="row justify-content-xl-center">
-          <div class="col-12 col-xl-11">
-            <h2 class="h1 mb-3" style="color:#22cfd6">How it work?</h2>
-            <p class="lead fs-4  mb-3">It can detect 7 emotions. The project works by getting live video feed from web cam, pass it through the model to get a prediction of emotion. Then according to the emotion predicted, the app will fetch playlist of songs
-                from Spotify through spotipy wrapper and recommend the songs by displaying them on the screen.</p>
+                            </div>
 
-          </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-5">
+                        <img class="img-fluid rounded" loading="lazy" src="static/target.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        </div>
-      </div>
-        <div class="col-12 col-lg-6 col-xl-5">
-        <img class="img-fluid rounded" loading="lazy" src="static/target.png" alt="">
-      </div>
     </div>
-  </div>
-</section>
-
-  </div>
-<hr>
+    <hr>
 
 
     <div class="card-group">
-    <div class="card">
-        <p></p>
-    <img class="card-img-top rounded-circle img-fluid" style="width: 50px;display: block;
+        <div class="card">
+            <p></p>
+            <img class="card-img-top rounded-circle img-fluid" style="width: 50px;display: block;
   margin-left: auto;
   margin-right: auto;" src="static/f.png" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title display-4" style="color:#23686f;">Features</h5>
+            <div class="card-body">
+                <h5 class="card-title display-4" style="color:#23686f;">Features</h5>
 
-        <ul class="card-text">
-            <li>Real time expression detection and song recommendations.</li>
-            <li>Playlists fetched from Spotify using API.</li>
-            <li> Html ,Css and Bootstrap for UI Design</li>
-        </ul>
+                <ul class="card-text">
+                    <li>Real time expression detection and song recommendations.</li>
+                    <li>Playlists fetched from Spotify using API.</li>
+                    <li> Html ,Css and Bootstrap for UI Design</li>
+                </ul>
 
 
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top rounded-circle img-fluid" style="width: 50px;display: block;
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top rounded-circle img-fluid" style="width: 50px;display: block;
   margin-left: auto;
   margin-right: auto;" src="static/pro.png" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title display-4" style="color:#e59922;">Problem Definition</h5>
-        <ul class="card-text">
-      <li class="card-text">Using traditional music players,a user had to manually browse
-          through his playlist and select songs that would soothe his mood and emotional experience.</li>
-        </ul>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top rounded-circle img-fluid" style="width: 50px;display: block;
+            <div class="card-body">
+                <h5 class="card-title display-4" style="color:#e59922;">Problem Definition</h5>
+                <ul class="card-text">
+                    <li class="card-text">Using traditional music players,a user had to manually browse
+                        through his playlist and select songs that would soothe his mood and emotional experience.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top rounded-circle img-fluid" style="width: 50px;display: block;
   margin-left: auto;
   margin-right: auto;" src="static/pur.png" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title display-4" style="color:#68757d;">Purpose</h5>
-      <ul class="card-text">
-            <li>Human face plays an important role in extraction of individual's emotional state .</li>
-            <li> Manually segregating the list of songs and generating an appropriate playlist based on an individual's emotions is tedious</li>
+            <div class="card-body">
+                <h5 class="card-title display-4" style="color:#68757d;">Purpose</h5>
+                <ul class="card-text">
+                    <li>Human face plays an important role in extraction of individual's emotional state .</li>
+                    <li> Manually segregating the list of songs and generating an appropriate playlist based on an
+                        individual's emotions is tedious
+                    </li>
 
-        </ul>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
 </div>
 
-  <hr>
+<hr>
 <div id="contact" class="contact-container" style="background:linear-gradient(#ffdad5,#fff7f9);">
     <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
         <input type="hidden" name="access_key" value="752ef6d9-3620-41d7-bd49-f0ca7b3e7f57">
@@ -391,12 +433,13 @@
             <hr>
         </div>
         <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required/>
-         <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required/>
+        <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required/>
         <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
-<div class="btn-group" role="group" aria-label="Basic example">
-  <button type="submit">Send Your Vibes! <img src="static/arrow_icon.png" alt=""/></button><br>
-    <button type="Reset">Reset </button>
-</div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="submit">Send Your Vibes! <img src="static/arrow_icon.png" alt=""/></button>
+            <br>
+            <button type="Reset">Reset</button>
+        </div>
 
     </form>
     <div class="contact-right">
@@ -409,29 +452,25 @@
 
 
 <footer class="site-footer">
-<div class="container">
-<div class="row">
+    <div class="container">
+        <div class="row">
 
-<div class="col-md-8 col-sm-6 col-12">
-<p class="copyright-text">Copyright © 2020 All Rights Reserved by
-<a href="#"><span class="logo">EmoTune.</span></a>
-</p>
-</div>
-<div class="col-md-4 col-sm-6 col-12">
-<ul class="social-icons">
-<li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
-<li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-<li><a class="dribbble" href="#"><i class="fab fa-youtube"></i></a></li>
-<li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
-</ul>
-</div>
-</div>
-</div>
+            <div class="col-md-8 col-sm-6 col-12">
+                <p class="copyright-text">Copyright © 2020 All Rights Reserved by
+                    <a href="#"><span class="logo">EmoTune.</span></a>
+                </p>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fab fa-youtube"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </footer>
-
-
-
-
 
 
 </body>

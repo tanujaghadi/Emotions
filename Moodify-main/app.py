@@ -46,6 +46,9 @@ def register():
 def example():
     return render_template("example.html")
 
+@app.route("/podcast")
+def podcast():
+    return render_template("podcast.html")
 
 @app.route("/successful")
 def successful():
