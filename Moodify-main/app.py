@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import tensorflow as tf
 import statistics as st
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import json
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -22,7 +22,7 @@ db = SQLAlchemy(app)
 
 class Userinfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), unique=False, nullable=False)
+    name = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(50), unique=False, nullable=False)
     password = db.Column(db.String(5), unique=False, nullable=False)
 
@@ -62,17 +62,17 @@ def home():
     return render_template('index1.html')
 
 
-Base = declarative_base()
-engine = create_engine('mysql://root:@localhost/users', echo=True)  # Replace with your database URL
-Base.metadata.create_all(engine)  # Create the tables in the database
-Session = sessionmaker(bind=engine)
-session1 = Session()
-
-user_data = session1.query(Userinfo).all()
-user_data_table = {}
-for user in user_data:
-    user_data_table[user.name] = user.password
-print(user_data_table)
+# Base = declarative_base()
+# engine = create_engine('mysql://root:@localhost/users', echo=True)  # Replace with your database URL
+# Base.metadata.create_all(engine)  # Create the tables in the database
+# Session = sessionmaker(bind=engine)
+# session1 = Session()
+#
+# user_data = session1.query(Userinfo).all()
+# user_data_table = {}
+# for user in user_data:
+#     user_data_table[user.name] = user.password
+# print(user_data_table)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -80,7 +80,10 @@ def login():
     if request.method == 'POST':
         username = request.form.get('name')
         password = request.form.get('password')
-        if username in user_data_table.keys() and password == user_data_table.get(username):
+        user1 = Userinfo.query.filter_by(name=username).first()
+        passw = Userinfo.query.filter_by(password=password).first()
+        if user1 and passw:
+            # if username in user_data_table.keys() and password == user_data_table.get(username):
             return redirect(url_for('home'))
 
     return render_template('login.html', params=params)
